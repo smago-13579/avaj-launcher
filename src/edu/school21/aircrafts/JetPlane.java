@@ -2,9 +2,9 @@ package edu.school21.aircrafts;
 
 import edu.school21.towers.WeatherTower;
 
-public class Helicopter extends Aircraft implements Flyable {
+public class JetPlane extends Aircraft implements Flyable {
 
-    public Helicopter(String name, Coordinates coordinates) {
+    public JetPlane(String name, Coordinates coordinates) {
         super(name, coordinates);
     }
 
@@ -20,6 +20,6 @@ public class Helicopter extends Aircraft implements Flyable {
 
     @Override
     public String toString() {
-        return "Helicopter#" + name + '(' + id + ')';
+        return "JetPlane#" + name + '(' + id + ')';
     }
 }
