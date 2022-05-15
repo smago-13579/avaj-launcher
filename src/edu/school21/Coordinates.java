@@ -1,4 +1,4 @@
-package edu.school21.aircrafts;
+package edu.school21;
 
 public class Coordinates {
     private int longitude;
@@ -9,6 +9,14 @@ public class Coordinates {
         this.longitude = longitude;
         this.latitude = latitude;
         this.height = height;
+
+        if (this.height > 100 ) {
+            this.height = 100;
+        }
+
+        if (this.height < 0) {
+            this.height = 0;
+        }
     }
 
     public int getLongitude() {

@@ -1,5 +1,7 @@
 package edu.school21.aircrafts;
 
+import edu.school21.Coordinates;
+
 public abstract class Aircraft {
     protected long id;
     protected String name;

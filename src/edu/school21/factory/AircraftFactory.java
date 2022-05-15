@@ -1,5 +1,6 @@
 package edu.school21.factory;
 
+import edu.school21.Coordinates;
 import edu.school21.aircrafts.*;
 
 public class AircraftFactory {

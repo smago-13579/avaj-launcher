@@ -1,4 +1,4 @@
-package edu.school21.towers;
+package edu.school21;
 
 import edu.school21.aircrafts.Flyable;
 
@@ -9,13 +9,15 @@ public abstract class Tower {
 
     public void register(Flyable flyable) {
         observers.add(flyable);
+        System.out.println("Tower says: " + flyable + " registered to weather tower.");
     }
 
     public void unregister(Flyable flyable) {
         observers.remove(flyable);
+        System.out.println("Tower says: " + flyable + " unregistered from weather tower.");
     }
 
     protected void conditionsChanged() {
-
+        observers.forEach(Flyable::updateConditions);
     }
 }

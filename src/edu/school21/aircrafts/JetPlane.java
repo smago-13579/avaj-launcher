@@ -1,8 +1,10 @@
 package edu.school21.aircrafts;
 
-import edu.school21.towers.WeatherTower;
+import edu.school21.Coordinates;
+import edu.school21.WeatherTower;
 
 public class JetPlane extends Aircraft implements Flyable {
+    private WeatherTower weatherTower;
 
     public JetPlane(String name, Coordinates coordinates) {
         super(name, coordinates);
@@ -15,7 +17,8 @@ public class JetPlane extends Aircraft implements Flyable {
 
     @Override
     public void registerTower(WeatherTower weatherTower) {
-
+        this.weatherTower = weatherTower;
+        weatherTower.register(this);
     }
 
     @Override
