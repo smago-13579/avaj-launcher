@@ -2,6 +2,7 @@ package edu.school21.aircrafts;
 
 import edu.school21.Coordinates;
 import edu.school21.WeatherTower;
+import edu.school21.exceptions.IllegalWeatherException;
 
 public class Helicopter extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
@@ -44,6 +45,8 @@ public class Helicopter extends Aircraft implements Flyable {
                 System.out.println(this + " landing.");
                 this.weatherTower.unregister(this);
             }
+        } else {
+            throw new IllegalWeatherException();
         }
     }
 

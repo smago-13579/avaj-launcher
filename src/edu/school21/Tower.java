@@ -3,6 +3,7 @@ package edu.school21;
 import edu.school21.aircrafts.Flyable;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public abstract class Tower {
     private ArrayList<Flyable> observers = new ArrayList<>();
@@ -18,6 +19,6 @@ public abstract class Tower {
     }
 
     protected void conditionsChanged() {
-        observers.forEach(Flyable::updateConditions);
+        Stream.of(observers.toArray()).forEach(o -> ((Flyable) o).updateConditions());
     }
 }

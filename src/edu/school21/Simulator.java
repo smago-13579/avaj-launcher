@@ -6,6 +6,7 @@ import edu.school21.exceptions.IllegalScenarioException;
 import edu.school21.factory.AircraftFactory;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Simulator {
-//    private static List<Flyable> aircrafts = new ArrayList<>();
+    private static PrintStream originalOut = System.out;
     private static AircraftFactory factory = new AircraftFactory();
     private static WeatherTower weatherTower = new WeatherTower();
     private static int times;
@@ -23,6 +24,8 @@ public class Simulator {
             if (args.length != 1) {
                 throw new IllegalScenarioException("There must be one scenario argument.");
             }
+            PrintStream fileOut = new PrintStream("simulation.txt");
+            System.setOut(fileOut);
             List<String> lines = Files.readAllLines(Paths.get(args[0]));
             times = Integer.parseInt(lines.remove(0).trim());
 
@@ -38,6 +41,7 @@ public class Simulator {
                 weatherTower.changeWeather();
             }
         } catch (IOException | RuntimeException e) {
+            System.setOut(originalOut);
             System.out.println(e.getMessage());
             System.exit(-1);
         }
